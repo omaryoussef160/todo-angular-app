@@ -1,0 +1,62 @@
+<nav class="bg-gray-900 text-white shadow-md">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+
+      <!-- Logo -->
+      <div class="text-xl font-bold">
+        📝 TaskFlow
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-6">
+
+        <a 
+          routerLink="/" 
+          routerLinkActive="text-indigo-400 border-b-2 border-indigo-400"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="hover:text-indigo-400 transition pb-1"
+        >
+          All
+        </a>
+
+        <a 
+          routerLink="/completed" 
+          routerLinkActive="text-green-400 border-b-2 border-green-400"
+          class="hover:text-green-400 transition pb-1"
+        >
+          Completed
+        </a>
+
+      </div>
+
+      <!-- Mobile Button -->
+      <div class="md:hidden">
+        <button (click)="toggleMenu()" class="text-2xl">
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="isMenuOpen" class="md:hidden px-4 pb-4 space-y-2 bg-gray-800">
+
+    <a 
+      routerLink="/" 
+      (click)="closeMenu()"
+      class="block py-2 hover:text-indigo-400"
+    >
+      All
+    </a>
+
+    <a 
+      routerLink="/completed" 
+      (click)="closeMenu()"
+      class="block py-2 hover:text-green-400"
+    >
+      Completed
+    </a>
+
+  </div>
+</nav>

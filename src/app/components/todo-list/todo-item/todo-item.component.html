@@ -1,0 +1,72 @@
+<div 
+  class="group relative p-5 bg-gray-50 border border-gray-300/60 rounded-2xl 
+         transition-all duration-300 hover:shadow-md hover:border-violet-300 hover:bg-violet-50"
+  [ngClass]="task.completed ? 'bg-gray-100 border-dashed opacity-80' : ''"
+>
+
+  <!-- Top -->
+  <div class="flex justify-between items-start">
+
+    <div class="flex items-start gap-3">
+
+      <!-- Checkbox -->
+      <input 
+        type="checkbox" 
+        [checked]="task.completed"
+        (change)="onToggleComplete()"
+        class="mt-1 w-5 h-5 accent-violet-600 cursor-pointer"
+      >
+
+      <!-- Content -->
+      <div>
+        <h3 
+          class="text-base font-semibold transition"
+          [ngClass]="task.completed 
+            ? 'line-through text-gray-400' 
+            : 'text-gray-900'"
+        >
+          {{ task.title }}
+        </h3>
+
+        <p class="text-xs text-gray-400 mt-1">
+          {{ task.createdAt | date:'short' }}
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Delete -->
+    <button 
+      (click)="onDeleteClick()"
+      class="opacity-0 group-hover:opacity-100 text-gray-400 hover:text-red-500 
+             transition duration-200 text-sm"
+    >
+      🗑️
+    </button>
+
+  </div>
+
+  <!-- Description -->
+  <p 
+    *ngIf="task.description"
+    class="text-sm text-gray-600 mt-3 leading-relaxed"
+  >
+    {{ task.description }}
+  </p>
+
+  <!-- Bottom -->
+  <div class="flex items-center justify-between mt-4">
+
+    <!-- Status -->
+    <span 
+      class="text-xs px-2 py-0.5 rounded-full font-medium shadow-sm"
+      [ngClass]="task.completed 
+        ? 'bg-green-100 text-green-600' 
+        : 'bg-violet-100 text-violet-700'"
+    >
+      {{ task.completed ? 'Completed' : 'Pending' }}
+    </span>
+
+  </div>
+
+</div>
