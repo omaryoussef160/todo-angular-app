@@ -55,29 +55,29 @@ export class TodoService {
   }
 
   addTask(title: string, description: string) {
-    const newTask: Todo = { 
-      id: null,
-      title, 
-      description, 
-      completed: false,
-      createdAt: new Date() 
-    };
+  const newTask: any = { 
+    title, 
+    description, 
+    completed: false,
+    createdAt: new Date() 
+  };
 
-    this.http.post<Todo>(this.apiUrl, newTask)
-      .subscribe(savedTask => {
-        this.tasksSubject.next([savedTask, ...this.tasksSubject.value]);
-      });
-  }
+  this.http.post<Todo>(this.apiUrl, newTask)
+    .subscribe(savedTask => {
+      this.tasksSubject.next([savedTask, ...this.tasksSubject.value]);
+    });
+}
 
-  updateTask(task: Todo) {
-    this.http.put<Todo>(`${this.apiUrl}/${task.id}`, task)
-      .subscribe(updated => {
-        const updatedList = this.tasksSubject.value.map(t =>
-          t.id === updated.id ? updated : t
-        );
-        this.tasksSubject.next(updatedList);
-      });
-  }
+ updateTask(task: Todo) {
+  this.http.put<Todo>(`${this.apiUrl}/${task.id}`, task)
+    .subscribe(updated => {
+      const updatedList = this.tasksSubject.value.map(t =>
+        t.id === updated.id ? updated : t
+      );
+
+      this.tasksSubject.next(updatedList);
+    });
+}
 
   deleteTask(id: any) {
     this.http.delete(`${this.apiUrl}/${id}`)

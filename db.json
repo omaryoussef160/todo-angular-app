@@ -1,25 +1,18 @@
 {
   "todos": [
     {
-      "id": "5d00",
-      "title": "Test",
-      "description": "test",
+      "id": "c413",
+      "title": "javascript",
+      "description": "first",
       "completed": true,
-      "createdAt": "2026-04-17T14:19:40.480Z"
+      "createdAt": "2026-04-23T10:13:29.321Z"
     },
     {
-      "id": "a448",
-      "title": "test2",
-      "description": "test2",
+      "id": "928b",
+      "title": "node.js",
+      "description": "second",
       "completed": false,
-      "createdAt": "2026-04-18T20:01:46.810Z"
-    },
-    {
-      "id": "b26b",
-      "title": "test3",
-      "description": "test3",
-      "completed": false,
-      "createdAt": "2026-04-18T20:04:39.917Z"
+      "createdAt": "2026-04-23T10:13:39.925Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
